@@ -1,0 +1,59 @@
+
+Question 2: Course Registration System
+A. Practical:
+Create a Course Registration System using Student and Course tables.
+1. Create both tables with suitable attributes.
+2. Use a Primary Key for each table and establish a Foreign Key relationship.
+3. Apply suitable NOT NULL, UNIQUE, DEFAULT, and CHECK constraints.
+4. Insert at least 5 students and 4 courses.
+5. Display students enrolled in a particular course.
+6. Update the course of a student.
+7. Delete a student using a suitable condition.
+8. Add a new column using ALTER.
+9. Rename one table using RENAME.
+10. Display the final records using SELECT.
+
+
+A1 + A2 + A3. CREATE TABLE STUDENT STUD_ID INT PRIMARY KEY, STUD_NAME VARCHAR(100) NOT NULL, STUD_MAIL VARCHAR(100) NOT NULL UNIQUE, AGE INT CHECK (AGE>=17), CO_ID INT, FOREIGN KEY (CO_ID)
+              REFERENCES COURSE(CO_ID);
+              CREATE TABLE COURSE CO_ID INT PRIMARY KEY, CO_NAME VARCHAR(100) NOT NULL UNIQUE, CREDITS INT NOT NULL CHECK (CREDITS BETWEEN 1 AND 6), DEPT VARCHAR(100) DEFAULT 'CSE;
+
+A4. INSERT INTO STUDENT(STUD_ID, STUD_NAME, STUD_MAIL, AGE, CO_ID) VALUES(121, 'JACK', 'jack@mail.com', 18, 101),(122, 'JOHN', 'john@mail.com', 18, 101),(123, 'RYAN' , 'ryan@mail.com', 20, 101),(124, 'STARK',             'stark@mail.com', 19, 202),(124, 'STEVE', 'steve@mail.com', 19, 202);
+
+INSERT INTO COURSE (CO_ID, CO_NAME, CREDITS, DEPT) VALUES (101, 'DBMS',4,'CSE'),(202, 'DSA', 3, 'CSE'),(303, 'OOPS', 4, 'CSE' ),(404, 'AGILE', 3, 'CSE');
+
+A5. SELECT STUDENT.STUD_ID, STUDENT.STUD_NAME, COURSE.CO_NAME FROM STUDENT JOIN COURSE ON STUDENT.CO_ID=COURSE.CO_ID WHERE COURSE.CO_NAME = 'DBMS';
+
+A6. UPDATE STUDENT SET CO_ID = 303, WHERE STUD_ID = 121;
+
+A7. DELETE FROM STUDENT WHERE STUD_ID=122;
+
+A8. ALTER TABLE STUDENT ADD PHN_NO VARCHAR(100);
+
+A9. RENAME TABLE STUDENT TO STUDENT_DETAILS;
+
+A10. SELECT* FROM STUDENT_DETAILS;
+     SELECT * FROM COURSE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
